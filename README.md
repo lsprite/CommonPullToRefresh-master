@@ -1,4 +1,4 @@
-#参考原地址：https://github.com/Chanven/CommonPullToRefresh
+# 参考原地址：https://github.com/Chanven/CommonPullToRefresh
 新增PtrFrameLayout.setNeedPullToFresh(boolean)和PtrFrameLayout.setNeedLoadMore(boolean)方法，控制时候开启下拉刷新和上拉载入更多(两个方法在findViewById之后马上执行，并且初始化参照demo，防止原代码复杂造成初始化漏了方法造成报错)
 
 # CommonPullToRefresh
