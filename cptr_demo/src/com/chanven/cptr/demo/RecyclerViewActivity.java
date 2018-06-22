@@ -60,8 +60,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
         setContentView(R.layout.recyclerview_layout);
 
         ptrClassicFrameLayout = (PtrClassicFrameLayout) this.findViewById(R.id.test_recycler_view_frame);
-        ptrClassicFrameLayout.setNeedPullToFresh(true);
-        ptrClassicFrameLayout.setNeedLoadMore(true);
         mRecyclerView = (RecyclerView) this.findViewById(R.id.test_recycler_view);
         init();
     }

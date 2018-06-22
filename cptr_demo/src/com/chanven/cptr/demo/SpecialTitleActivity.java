@@ -1,8 +1,10 @@
 package com.chanven.cptr.demo;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -17,20 +19,26 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import com.chanven.cptr.demo.util.AndroidJavaScript;
+import com.chanven.cptr.demo.view.AnimTitleView;
+import com.chanven.cptr.demo.view.MyWebView;
 
 /**
- * Created by Administrator on 2018/6/19.
+ * https://blog.csdn.net/cc_lova_wxf/article/details/77841646
  */
 
-public class AutoTitleActivity extends AppCompatActivity {
-    WebView webView;
+public class SpecialTitleActivity extends AppCompatActivity implements MyWebView.OnScrollListener {
+    MyWebView webView;
     ProgressBar loadingbar;
     boolean isOnPause = false;
+    //
+    private AnimTitleView titleView;
 
+    //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.autotitle_layout);
+        setContentView(R.layout.specialtitle_layout);
+        //
         initView();
         setWebView();
         webView.loadUrl("https://www.baidu.com");
@@ -74,9 +82,15 @@ public class AutoTitleActivity extends AppCompatActivity {
         webView.destroy();
     }
 
+
+    @TargetApi(Build.VERSION_CODES.M)
     private void initView() {
         // TODO Auto-generated method stub
-        webView = (WebView) findViewById(R.id.web_webview);
+        titleView = (AnimTitleView) findViewById(R.id.atv_title);
+        titleView.setTitle("测试标题");
+        //
+        webView = (MyWebView) findViewById(R.id.web_webview);
+        webView.setmOnScrollListener(this);
         loadingbar = (ProgressBar) findViewById(R.id.loadingbar);
         loadingbar.setVisibility(View.VISIBLE);
         loadingbar.setMax(100);
@@ -188,6 +202,7 @@ public class AutoTitleActivity extends AppCompatActivity {
             super.onProgressChanged(view, newProgress);
         }
 
+        @Override
         public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
             try {
 //                final MyAlertDialog dialog = new MyAlertDialog(WebActivity.this);
@@ -236,5 +251,29 @@ public class AutoTitleActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+
+    @Override
+    public void onPageEnd(int l, int t, int oldl, int oldt) {
+        Log.e("WeChatWebView", "onPageEnd");
+    }
+
+    @Override
+    public void onPageTop(int l, int t, int oldl, int oldt) {
+        Log.e("WeChatWebView", "onPageTop");
+    }
+
+
+    @Override
+    public void onScroll(int dx, int dy) {
+        //上滑dy>0
+//        Log.e("WeChatWebView", "dx:" + dx + "---dy:" + dy);
+
+    }
+
+    @Override
+    public void onScrollChanged(int l, int t, int oldl, int oldt) {
+        titleView.setScrollY(t);
     }
 }

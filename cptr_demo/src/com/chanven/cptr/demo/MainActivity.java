@@ -51,13 +51,25 @@ public class MainActivity extends AppCompatActivity {
     public void goCollapsingToolbar(View view) {
         startActivity(new Intent(this, CollapsingToolbarActivity.class));
     }
+
     public void goExplain(View view) {
         startActivity(new Intent(this, ExplainActivity.class));
     }
+
     public void goEasyDemo(View view) {
         startActivity(new Intent(this, EasyDemoActivity.class));
     }
-    public void goAutoTitle(View view) {
-        startActivity(new Intent(this, AutoTitleActivity.class));
+    public void goWeChatWebView(View view) {
+        startActivity(new Intent(this, WeChatWebViewActivity.class));
+    }
+    public void goSpecialTitleActivity(View view) {
+        startActivity(new Intent(this, SpecialTitleActivity.class));
+    }
+    public void goWebView(View view) {
+        startActivity(new Intent(this, WebViewActivity.class));
+    }
+
+    public void goNornalWebView(View view) {
+        startActivity(new Intent(this, NornalWebViewActivity.class));
     }
 }
