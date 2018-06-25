@@ -7,14 +7,15 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="80dp"
         android:fitsSystemWindows="true">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
             android:layout_weight="1.0"
+            android:background="#ff0000"
             android:fitsSystemWindows="true"
             app:collapsedTitleGravity="center"
             app:collapsedTitleTextAppearance="@style/CollapsedTitleTextAppearance"
@@ -25,17 +26,33 @@
             app:expandedTitleMarginStart="10dp"
             app:expandedTitleMarginTop="10dp"
             app:expandedTitleTextAppearance="@style/ExpandedTitleTextAppearance"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|enterAlways">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
+                android:background="#00ff00"
                 app:contentInsetLeft="0dp"
                 app:contentInsetStart="0dp"
                 app:layout_collapseMode="pin" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
+
+        <RelativeLayout
+            android:id="@+id/title_small"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#0000ff"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="DesignLibrarySample"
+                android:textAppearance="@style/CollapsedTitleTextAppearance" />
+        </RelativeLayout>
 
         <ProgressBar
             android:id="@+id/loadingbar"
@@ -53,4 +70,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
 </android.support.design.widget.CoordinatorLayout>

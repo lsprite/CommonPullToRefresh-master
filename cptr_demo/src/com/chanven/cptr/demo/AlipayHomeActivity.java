@@ -41,7 +41,7 @@ public class AlipayHomeActivity extends AppCompatActivity implements AppBarLayou
         v_toolbar_search_mask = findViewById(R.id.v_toolbar_search_mask);
         //扫一扫 付一付 聊一聊 咻一咻 的大图标布局遮罩
         v_title_big_mask = findViewById(R.id.v_title_big_mask);
-        //扫一扫 付一付 聊一聊 咻一咻 的大图标布局遮罩
+        //扫一扫 付一付 聊一聊 咻一咻 的小图标布局遮罩
         v_toolbar_small_mask = findViewById(R.id.v_toolbar_small_mask);
         //背景颜色
         mMaskColor = getResources().getColor(R.color.blue_dark);

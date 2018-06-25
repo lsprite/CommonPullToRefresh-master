@@ -72,4 +72,7 @@ public class MainActivity extends AppCompatActivity {
     public void goNornalWebView(View view) {
         startActivity(new Intent(this, NornalWebViewActivity.class));
     }
+    public void goWeChatWebView(View view) {
+        startActivity(new Intent(this, WeChatWebViewActivity.class));
+    }
 }
