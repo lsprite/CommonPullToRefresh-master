@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
     public void goEasyDemo(View view) {
         startActivity(new Intent(this, EasyDemoActivity.class));
     }
-    public void goWeChatWebView(View view) {
-        startActivity(new Intent(this, WeChatWebViewActivity.class));
+    public void goAlipayHome(View view) {
+        startActivity(new Intent(this, AlipayHomeActivity.class));
     }
     public void goSpecialTitleActivity(View view) {
         startActivity(new Intent(this, SpecialTitleActivity.class));

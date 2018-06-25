@@ -31,7 +31,7 @@
             android:name="com.chanven.cptr.demo.SwipeListViewActivity"
             android:label="@string/swipe_listview_with_loadmore" />
         <activity android:name="com.chanven.cptr.demo.MenuActivity" />
-        <activity android:name="com.chanven.cptr.demo.WeChatWebViewActivity" />
+        <activity android:name="com.chanven.cptr.demo.AlipayHomeActivity" />
         <activity android:name="com.chanven.cptr.demo.SpecialTitleActivity" />
         <activity android:name="com.chanven.cptr.demo.WebViewActivity" />
         <activity android:name="com.chanven.cptr.demo.CollapsingToolbarActivity" />

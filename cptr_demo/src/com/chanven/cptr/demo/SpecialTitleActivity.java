@@ -273,6 +273,11 @@ public class SpecialTitleActivity extends AppCompatActivity implements MyWebView
     }
 
     @Override
+    public void between(int dy) {
+        //上滑dy>0
+    }
+
+    @Override
     public void onScrollChanged(int l, int t, int oldl, int oldt) {
         titleView.setScrollY(t);
     }

@@ -2,6 +2,7 @@ package com.chanven.cptr.demo.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.webkit.WebView;
 
 public class MyWebView extends WebView {
@@ -21,38 +22,37 @@ public class MyWebView extends WebView {
         super(context, attrs);
     }
 
-//
-//    @Override
-//    public boolean onTouchEvent(MotionEvent ev) {
-//
-//        switch (ev.getAction()) {
-//
-//            case MotionEvent.ACTION_DOWN:
-//
-//                lastScrollY = this.getScrollY();
-//
-//            case MotionEvent.ACTION_MOVE:
-//
-//                if (Math.abs(lastScrollY - this.getScrollY()) > 10) {
-////                    if (lastScrollY > this.getScrollY())//向上拉
-////                    {
-////                    } else//向下拉
-////                    {
-////                    }
-//                    if (mOnScrollListener != null) {
-//                        mOnScrollListener.between(this.getScrollY() - lastScrollY);
+    //
+    @Override
+    public boolean onTouchEvent(MotionEvent ev) {
+
+        switch (ev.getAction()) {
+
+            case MotionEvent.ACTION_DOWN:
+
+                lastScrollY = this.getScrollY();
+                break;
+            case MotionEvent.ACTION_MOVE:
+
+                if (Math.abs(lastScrollY - this.getScrollY()) > 10) {
+//                    if (lastScrollY > this.getScrollY())//向上拉
+//                    {
+//                    } else//向下拉
+//                    {
 //                    }
-//
-//                    lastScrollY = this.getScrollY();
-//                }
-//
-//
-//            case MotionEvent.ACTION_UP:
-//                break;
-//        }
-//
-//        return super.onTouchEvent(ev);
-//    }
+                    if (mOnScrollListener != null) {
+                        mOnScrollListener.between(this.getScrollY() - lastScrollY);
+                    }
+
+                    lastScrollY = this.getScrollY();
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+        }
+
+        return super.onTouchEvent(ev);
+    }
 
     public OnScrollListener getmOnScrollListener() {
         return mOnScrollListener;
@@ -65,7 +65,6 @@ public class MyWebView extends WebView {
 
     @Override
     protected void onScrollChanged(int l, int t, int oldl, int oldt) {
-
         super.onScrollChanged(l, t, oldl, oldt);
         // webview的高度
         float webcontent = getContentHeight() * getScale();
@@ -101,6 +100,8 @@ public class MyWebView extends WebView {
         public void onPageTop(int l, int t, int oldl, int oldt);
 
         public void onScroll(int dx, int dy);
+
+        public void between(int dy);
 
         public void onScrollChanged(int l, int t, int oldl, int oldt);
     }
