@@ -4,11 +4,13 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:fitsSystemWindows="true">
+
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar_layout"
@@ -28,6 +30,7 @@
             app:expandedTitleTextAppearance="@style/ExpandedTitleTextAppearance"
             app:layout_scrollFlags="scroll|enterAlways">
 
+
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
@@ -43,7 +46,7 @@
             android:id="@+id/title_small"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:background="#0000ff"
+            android:background="#00ffff"
             android:visibility="gone">
 
             <TextView
@@ -71,4 +74,16 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+    <!--<android.support.design.widget.FloatingActionButton-->
+    <!--android:id="@+id/fab"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_margin="0dp"-->
+    <!--android:src="@drawable/title_back"-->
+    <!--app:backgroundTint="@color/transparent"-->
+    <!--app:borderWidth="0dp"-->
+    <!--app:layout_anchor="@id/app_bar"-->
+    <!--app:layout_anchorGravity="left|center"-->
+    <!--app:pressedTranslationZ="0dp"app:fabSize="mini"-->
+    <!--app:rippleColor="@color/transparent" />-->
 </android.support.design.widget.CoordinatorLayout>

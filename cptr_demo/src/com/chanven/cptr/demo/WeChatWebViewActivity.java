@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.DownloadListener;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
@@ -72,19 +73,29 @@ public class WeChatWebViewActivity extends AppCompatActivity implements AppBarLa
             //展开
             Log.d("aaa", "展开");
             title_small.setVisibility(View.GONE);
+            toolbar.setVisibility(View.VISIBLE);
+            collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedTitleTextAppearance);
+            collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedTitleTextAppearance);
         } else if (Math.abs(verticalOffset) >= appBarLayout.getTotalScrollRange()) {
             //缩进
             Log.d("aaa", "缩进");
             title_small.setVisibility(View.VISIBLE);
+            toolbar.setVisibility(View.INVISIBLE);
+            collapsingToolbarLayout.setExpandedTitleColor(Color.TRANSPARENT);
+            collapsingToolbarLayout.setCollapsedTitleTextColor(Color.TRANSPARENT);
         } else {
             //中间
             if (absVerticalOffset >= Utils.dip2px(this, (50 - 30)))//30为CollapsingToolbarLayout的高度-toolbar的高度
             {
-                collapsingToolbarLayout.setTitle("");//设置成空，避免上面计算滑动差值因精准度造成的误差而导致滑动过程会漏出一部分字
+                collapsingToolbarLayout.setExpandedTitleColor(Color.TRANSPARENT);//设置成空，避免上面计算滑动差值因精准度造成的误差而导致滑动过程会漏出一部分字
+                collapsingToolbarLayout.setCollapsedTitleTextColor(Color.TRANSPARENT);
+                //
                 title_small.setVisibility(View.VISIBLE);
                 toolbar.setVisibility(View.INVISIBLE);
             } else {
                 collapsingToolbarLayout.setTitle("DesignLibrarySample");
+                collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedTitleTextAppearance);
+                collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedTitleTextAppearance);
                 title_small.setVisibility(View.GONE);
                 toolbar.setVisibility(View.VISIBLE);
             }
