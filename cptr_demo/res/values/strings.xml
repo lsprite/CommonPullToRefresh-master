@@ -10,4 +10,5 @@
     <string name="swipe_listview_with_loadmore">SwipeRefreshLayout ListView With LoadMore</string>
     <!--  -->
     <string name="toolbar_title">Toolbar Title</string>
+    <string name="collapsingtoolbarlayout_title">DesignLibrarySample</string>
 </resources>

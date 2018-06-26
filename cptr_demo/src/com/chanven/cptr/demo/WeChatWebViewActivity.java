@@ -12,7 +12,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.webkit.DownloadListener;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
@@ -39,6 +38,8 @@ public class WeChatWebViewActivity extends AppCompatActivity implements AppBarLa
     private CollapsingToolbarLayout collapsingToolbarLayout;
     private Toolbar toolbar;
     private RelativeLayout title_small;
+    //
+    private RelativeLayout rl_title;
 
     //
     @Override
@@ -49,11 +50,15 @@ public class WeChatWebViewActivity extends AppCompatActivity implements AppBarLa
         mAppbarLayout = (AppBarLayout) findViewById(R.id.app_bar);
         mAppbarLayout.addOnOffsetChangedListener(this);
         title_small = (RelativeLayout) findViewById(R.id.title_small);
+        rl_title = (RelativeLayout) findViewById(R.id.rl_title);
+//        int marTop = Utils.getStatusBarHeight(this);
+//        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(rl_title.getLayoutParams());
+//        lp.setMargins(0, marTop, 0, 0);
+//        rl_title.setLayoutParams(lp);
         //
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        collapsingToolbarLayout.setTitle("DesignLibrarySample");
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
         collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);
         //
@@ -72,6 +77,7 @@ public class WeChatWebViewActivity extends AppCompatActivity implements AppBarLa
         if (verticalOffset == 0) {
             //展开
             Log.d("aaa", "展开");
+            rl_title.setVisibility(View.VISIBLE);
             title_small.setVisibility(View.GONE);
             toolbar.setVisibility(View.VISIBLE);
             collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedTitleTextAppearance);
@@ -79,21 +85,23 @@ public class WeChatWebViewActivity extends AppCompatActivity implements AppBarLa
         } else if (Math.abs(verticalOffset) >= appBarLayout.getTotalScrollRange()) {
             //缩进
             Log.d("aaa", "缩进");
+            rl_title.setVisibility(View.GONE);
             title_small.setVisibility(View.VISIBLE);
             toolbar.setVisibility(View.INVISIBLE);
             collapsingToolbarLayout.setExpandedTitleColor(Color.TRANSPARENT);
             collapsingToolbarLayout.setCollapsedTitleTextColor(Color.TRANSPARENT);
         } else {
             //中间
-            if (absVerticalOffset >= Utils.dip2px(this, (50 - 30)))//30为CollapsingToolbarLayout的高度-toolbar的高度
+            rl_title.setVisibility(View.GONE);
+            if (absVerticalOffset >= Utils.dip2px(this, (40 - 30)))//AppBarLayout的高度-toolbar的高度
             {
-                collapsingToolbarLayout.setExpandedTitleColor(Color.TRANSPARENT);//设置成空，避免上面计算滑动差值因精准度造成的误差而导致滑动过程会漏出一部分字
+                collapsingToolbarLayout.setExpandedTitleColor(Color.TRANSPARENT);//设置成透明，避免上面计算滑动差值因精准度造成的误差而导致滑动过程会漏出一部分字
                 collapsingToolbarLayout.setCollapsedTitleTextColor(Color.TRANSPARENT);
                 //
                 title_small.setVisibility(View.VISIBLE);
                 toolbar.setVisibility(View.INVISIBLE);
             } else {
-                collapsingToolbarLayout.setTitle("DesignLibrarySample");
+//                collapsingToolbarLayout.setTitle("DesignLibrarySample");
                 collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedTitleTextAppearance);
                 collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedTitleTextAppearance);
                 title_small.setVisibility(View.GONE);

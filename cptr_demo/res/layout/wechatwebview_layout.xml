@@ -1,89 +1,108 @@
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="match_parent"
         android:fitsSystemWindows="true">
 
 
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/collapsing_toolbar_layout"
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="1.0"
-            android:background="#ff0000"
-            android:fitsSystemWindows="true"
-            app:collapsedTitleGravity="center"
-            app:collapsedTitleTextAppearance="@style/CollapsedTitleTextAppearance"
-            app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleGravity="center"
-            app:expandedTitleMarginBottom="10dp"
-            app:expandedTitleMarginEnd="10dp"
-            app:expandedTitleMarginStart="10dp"
-            app:expandedTitleMarginTop="10dp"
-            app:expandedTitleTextAppearance="@style/ExpandedTitleTextAppearance"
-            app:layout_scrollFlags="scroll|enterAlways">
+            android:layout_height="40dp"
+            android:background="#fff000"
+            android:fitsSystemWindows="true">
 
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:background="#ff0000"
+                android:fitsSystemWindows="true"
+                app:collapsedTitleGravity="center"
+                app:collapsedTitleTextAppearance="@style/CollapsedTitleTextAppearance"
+                app:contentScrim="#ff00ff"
+                app:expandedTitleGravity="center"
+                app:expandedTitleMargin="0dp"
+                app:expandedTitleTextAppearance="@style/ExpandedTitleTextAppearance"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:title="@string/collapsingtoolbarlayout_title">
+
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="#00ff00"
+                    app:contentInsetLeft="0dp"
+                    app:contentInsetStart="0dp"
+                    app:layout_collapseMode="pin" />
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+            <RelativeLayout
+                android:id="@+id/title_small"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:background="#00ff00"
-                app:contentInsetLeft="0dp"
-                app:contentInsetStart="0dp"
-                app:layout_collapseMode="pin" />
+                android:background="#00ffff"
+                android:visibility="gone">
 
-        </android.support.design.widget.CollapsingToolbarLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="DesignLibrarySample"
+                    android:textAppearance="@style/CollapsedTitleTextAppearance" />
+            </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/title_small"
+            <ProgressBar
+                android:id="@+id/loadingbar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="5dip"
+                android:indeterminateOnly="false"
+                android:max="100"
+                android:progressDrawable="@drawable/progress_bar_states" />
+        </android.support.design.widget.AppBarLayout>
+
+
+        <com.chanven.cptr.demo.view.NestedScrollWebView
+            android:id="@+id/web_webview"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:background="#00ffff"
-            android:visibility="gone">
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="DesignLibrarySample"
-                android:textAppearance="@style/CollapsedTitleTextAppearance" />
-        </RelativeLayout>
+        <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/fab"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="0dp"-->
+        <!--android:src="@drawable/title_back"-->
+        <!--app:backgroundTint="@color/transparent"-->
+        <!--app:borderWidth="0dp"-->
+        <!--app:layout_anchor="@id/app_bar"-->
+        <!--app:layout_anchorGravity="left|center"-->
+        <!--app:pressedTranslationZ="0dp"app:fabSize="mini"-->
+        <!--app:rippleColor="@color/transparent" />-->
+    </android.support.design.widget.CoordinatorLayout>
 
-        <ProgressBar
-            android:id="@+id/loadingbar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="5dip"
-            android:indeterminateOnly="false"
-            android:max="100"
-            android:progressDrawable="@drawable/progress_bar_states" />
-    </android.support.design.widget.AppBarLayout>
-
-
-    <com.chanven.cptr.demo.view.NestedScrollWebView
-        android:id="@+id/web_webview"
+    <RelativeLayout
+        android:id="@+id/rl_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        android:layout_height="40dp">
 
-    <!--<android.support.design.widget.FloatingActionButton-->
-    <!--android:id="@+id/fab"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_margin="0dp"-->
-    <!--android:src="@drawable/title_back"-->
-    <!--app:backgroundTint="@color/transparent"-->
-    <!--app:borderWidth="0dp"-->
-    <!--app:layout_anchor="@id/app_bar"-->
-    <!--app:layout_anchorGravity="left|center"-->
-    <!--app:pressedTranslationZ="0dp"app:fabSize="mini"-->
-    <!--app:rippleColor="@color/transparent" />-->
-</android.support.design.widget.CoordinatorLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <include layout="@layout/btn_back" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
