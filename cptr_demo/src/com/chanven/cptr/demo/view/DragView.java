@@ -3,12 +3,11 @@ package com.chanven.cptr.demo.view;
 import android.content.Context;
 import android.graphics.Point;
 import android.os.Build;
+import android.support.design.widget.CoordinatorLayout;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 
 public class DragView extends android.support.v7.widget.AppCompatTextView {
@@ -79,7 +78,8 @@ public class DragView extends android.support.v7.widget.AppCompatTextView {
                 int offsetX = (int) (event.getX() - moveX);
                 int offsetY = (int) (event.getY() - moveY);
                 Log.e("nemo", "---onTouchEvent " + getLeft() + "," + getTop());
-                ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
+//                ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
+                CoordinatorLayout.MarginLayoutParams layoutParams = (CoordinatorLayout.MarginLayoutParams) getLayoutParams();
                 //判断边界
                 int leftMargin = getLeft() + offsetX;
                 int topMargin = getTop() + offsetY;
