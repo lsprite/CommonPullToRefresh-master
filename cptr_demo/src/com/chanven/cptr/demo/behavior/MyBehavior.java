@@ -16,7 +16,6 @@ public class MyBehavior extends CoordinatorLayout.Behavior {
         super(context, attrs);
         DisplayMetrics display = context.getResources().getDisplayMetrics();
         width = display.widthPixels;
-        Log.e("nemo", "---width is " + width);
     }
 
     /**

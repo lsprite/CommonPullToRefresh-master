@@ -14,10 +14,16 @@ android {
     buildToolsVersion "28.0.3"
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 26
         versionCode 1
         versionName version
     }
+
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
+    }
+
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
