@@ -5,13 +5,13 @@ apply plugin: 'com.github.dcendents.android-maven'
 version = "1.1.0"
 
 dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
-    compile 'com.android.support:recyclerview-v7:23.1.0'
+    implementation fileTree(dir: 'libs', include: '*.jar')
+    implementation 'com.android.support:recyclerview-v7:23.1.0'
 }
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    buildToolsVersion "28.0.3"
     resourcePrefix "cptr_"
 
     sourceSets {
@@ -26,7 +26,7 @@ android {
         }
 
         // Move the tests to tests/java, tests/res, etc...
-        instrumentTest.setRoot('tests')
+        androidTest.setRoot('tests')
 
         // Move the build types to build-types/<type>
         // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...

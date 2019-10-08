@@ -52,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, CollapsingToolbarActivity.class));
     }
 
+    public void goCoordinatorLayout(View view) {
+        startActivity(new Intent(this, CoordinatorLayoutActivity.class));
+    }
+
     public void goExplain(View view) {
         startActivity(new Intent(this, ExplainActivity.class));
     }
@@ -59,12 +63,15 @@ public class MainActivity extends AppCompatActivity {
     public void goEasyDemo(View view) {
         startActivity(new Intent(this, EasyDemoActivity.class));
     }
+
     public void goAlipayHome(View view) {
         startActivity(new Intent(this, AlipayHomeActivity.class));
     }
+
     public void goSpecialTitleActivity(View view) {
         startActivity(new Intent(this, SpecialTitleActivity.class));
     }
+
     public void goWebView(View view) {
         startActivity(new Intent(this, WebViewActivity.class));
     }
@@ -72,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
     public void goNornalWebView(View view) {
         startActivity(new Intent(this, NornalWebViewActivity.class));
     }
+
     public void goWeChatWebView(View view) {
         startActivity(new Intent(this, WeChatWebViewActivity.class));
     }

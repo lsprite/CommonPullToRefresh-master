@@ -43,6 +43,7 @@
         <activity android:name="com.chanven.cptr.demo.ExplainActivity" />
         <activity android:name="com.chanven.cptr.demo.EasyDemoActivity" />
         <activity android:name="com.chanven.cptr.demo.WeChatWebViewActivity" />
+        <activity android:name="com.chanven.cptr.demo.CoordinatorLayoutActivity" />
     </application>
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />

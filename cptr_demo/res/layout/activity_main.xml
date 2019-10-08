@@ -65,7 +65,13 @@
                 android:onClick="goCollapsingToolbar"
                 android:text=" CollapsingToolbar"
                 android:textAllCaps="false" />
-
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:onClick="goCoordinatorLayout"
+                android:text=" CoordinatorLayout"
+                android:textAllCaps="false" />
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
